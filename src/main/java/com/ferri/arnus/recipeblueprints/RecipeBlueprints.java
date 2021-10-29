@@ -2,6 +2,7 @@ package com.ferri.arnus.recipeblueprints;
 
 import com.ferri.arnus.recipeblueprints.items.ItemRegistry;
 import com.ferri.arnus.recipeblueprints.loot.LootRegistry;
+import com.ferri.arnus.recipeblueprints.loot.LootSerializer;
 import com.ferri.arnus.recipeblueprints.tags.RecipeTagsManager;
 
 import net.minecraftforge.event.AddReloadListenerEvent;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public class RecipeBlueprints {
     public static final String MODID = "recipeblueprints";
     public static final RecipeTagsManager RECIPE_TAGS_MANAGER = new RecipeTagsManager();
+    public static final LootSerializer LOOT = new LootSerializer();
     
     public RecipeBlueprints() {
     	
@@ -26,6 +28,7 @@ public class RecipeBlueprints {
     @SubscribeEvent
     static void reload(AddReloadListenerEvent event) {
     	event.addListener(RECIPE_TAGS_MANAGER);
+    	event.addListener(LOOT);
     }
     
 }

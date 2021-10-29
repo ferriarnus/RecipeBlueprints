@@ -6,9 +6,6 @@
       "loot_table_id": "minecraft:chests/simple_dungeon"
     }
   ],
-  "table": 
-    {
-  "type": "minecraft:chest",
   "pools": [
     {
       "rolls": 1.0,
@@ -322,5 +319,4 @@
       ]
     }
   ]
-}
 }
