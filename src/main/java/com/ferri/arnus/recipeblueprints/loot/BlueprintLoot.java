@@ -24,13 +24,15 @@ public class BlueprintLoot extends LootModifier{
 		if (locked) {
 			return generatedLoot;
 		}
-		LootTable loottable = context.getLevel().getServer().getLootTables().get(new ResourceLocation("chests/abandoned_mineshaft"));
+		ResourceLocation location = context.getQueriedLootTableId();
+		LootTable loottable = context.getLevel().getServer().getLootTables().get(location);
+		LootSerializer.addPools(loottable);
+		LootSerializer.replacePools(loottable);
+		LootSerializer.removePools(loottable);
 		locked = true;
 		List<ItemStack> randomItems = loottable.getRandomItems(context);
 		locked = false;
-		loottable.getPool("main");
-		generatedLoot.addAll(randomItems);
-		return generatedLoot;
+		return randomItems;
 	}
 	
 	static class Serializer extends GlobalLootModifierSerializer<BlueprintLoot> {

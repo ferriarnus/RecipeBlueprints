@@ -1,4 +1,6 @@
 {
+  "table": "",
+  "action": "appendpool",
   "type": "recipeblueprints:blueprints",
   "conditions": [
     {
